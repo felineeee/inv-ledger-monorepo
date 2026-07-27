@@ -1,8 +1,8 @@
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module.js';
-import { AllExceptionsFilter } from '@inv-ledger/filter';
-import { PiiScrubberLogger } from '@inv-ledger/logger';
+import { AllExceptionsFilter } from '@inv-ledger/filters';
+import { PiiScrubberLogger } from '@inv-ledger/loggers';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {

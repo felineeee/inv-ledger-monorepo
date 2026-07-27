@@ -1,11 +1,12 @@
-import { Injectable, ConflictException } from '@nestjs/common';
+import { Inject, Injectable, ConflictException } from '@nestjs/common';
 import { Kysely, sql } from 'kysely';
-import { DB } from '@/db/types.js';
+import { DB } from '../../../db/types.js';
 import { ProcessReturnDto, RestockReturnDto } from '../dto/return.dto.js';
+import { KYSELY_DB } from '@inv-ledger/databases';
 
 @Injectable()
 export class ReturnService {
-  constructor(private readonly db: Kysely<DB>) {}
+  constructor(@Inject(KYSELY_DB) private readonly db: Kysely<DB>) {}
 
   // [x] POST /api/returns
   async processReturn(dto: ProcessReturnDto) {

@@ -1,14 +1,15 @@
-import { Injectable, BadRequestException } from '@nestjs/common';
+import { Inject, Injectable, BadRequestException } from '@nestjs/common';
 import { Kysely } from 'kysely';
-import { DB } from '@/db/types.js';
+import { DB } from '../../../db/types.js';
 import {
   CreateSupplierDto,
   UpdateSupplierDto,
 } from '../dto/purchase-order.dto.js';
+import { KYSELY_DB } from '@inv-ledger/databases';
 
 @Injectable()
 export class SupplierService {
-  constructor(private readonly db: Kysely<DB>) {}
+  constructor(@Inject(KYSELY_DB) private readonly db: Kysely<DB>) {}
 
   async findAll() {
     return this.db

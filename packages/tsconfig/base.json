@@ -1,17 +1,13 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
+    "target": "ES2023",
     "module": "nodenext",
     "moduleResolution": "nodenext",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "types": ["node", "jest"],
     "forceConsistentCasingInFileNames": true,
-    "exactOptionalPropertyTypes": true,
-    "noImplicitReturns": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "ignoreDeprecations": "6.0"
-  }
+    "declaration": true
+  },
+  "exclude": ["node_modules", "dist", "**/*.spec.ts", "**/*.test.ts"]
 }

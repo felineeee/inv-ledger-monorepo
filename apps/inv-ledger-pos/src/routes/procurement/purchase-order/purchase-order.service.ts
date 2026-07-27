@@ -1,14 +1,15 @@
-import { Injectable, ConflictException } from '@nestjs/common';
-import { DB } from '@/db/types.js';
+import { Inject, Injectable, ConflictException } from '@nestjs/common';
+import { DB } from '../../../db/types.js';
 import { Kysely } from 'kysely';
 import {
   CreatePurchaseOrderDto,
   UpdatePurchaseOrderDto,
   UpdatePOStatusDto,
 } from '../dto/purchase-order.dto.js';
+import { KYSELY_DB } from '@inv-ledger/databases';
 @Injectable()
 export class PurchaseOrderService {
-  constructor(private readonly db: Kysely<DB>) {}
+  constructor(@Inject(KYSELY_DB) private readonly db: Kysely<DB>) {}
 
   // [x] GET /api/purchase-orders
   async findAll(status?: string) {

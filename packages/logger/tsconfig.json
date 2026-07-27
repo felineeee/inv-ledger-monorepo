@@ -1,4 +1,0 @@
-{
-  "extends": "@inv-ledger/tsconfig/base.json",
-  "include": ["src/**/*"]
-}

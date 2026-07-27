@@ -1,5 +1,5 @@
 {
-  "name": "@inv-ledger/filters",
+  "name": "@inv-ledger/loggers",
   "version": "1.0.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -8,12 +8,9 @@
     "build": "tsc",
     "clean": "rm -rf dist"
   },
-  "dependencies": {
-    "kysely": "0.29.4"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@inv-ledger/tsconfig": "workspace:*",
-    "@types/express": "^4.17.0",
     "typescript": "^5.0.0"
   }
 }

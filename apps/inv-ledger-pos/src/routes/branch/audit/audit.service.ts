@@ -1,11 +1,12 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { Kysely } from 'kysely';
-import { DB } from '@/db/types.js';
+import { DB } from '../../../db/types.js';
 import { AuditFilterDto } from '../dto/audit-filter.dto.js';
+import { KYSELY_DB } from '@inv-ledger/databases';
 
 @Injectable()
 export class AuditService {
-  constructor(private readonly db: Kysely<DB>) {}
+  constructor(@Inject(KYSELY_DB) private readonly db: Kysely<DB>) {}
 
   // [x] GET /api/inventory/ledger
   async getLedger(filters: AuditFilterDto) {

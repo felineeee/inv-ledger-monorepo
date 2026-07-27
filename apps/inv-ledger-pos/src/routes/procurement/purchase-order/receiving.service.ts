@@ -1,11 +1,12 @@
-import { Injectable, ConflictException } from '@nestjs/common';
+import { Inject, Injectable, ConflictException } from '@nestjs/common';
 import { Kysely, sql } from 'kysely';
-import { DB } from '@/db/types.js';
+import { DB } from '../../../db/types.js';
 import { ReceivePODto } from '../dto/purchase-order.dto.js';
+import { KYSELY_DB } from '@inv-ledger/databases';
 
 @Injectable()
 export class ReceivingService {
-  constructor(private readonly db: Kysely<DB>) {}
+  constructor(@Inject(KYSELY_DB) private readonly db: Kysely<DB>) {}
 
   // [x] POST /api/purchase-orders/:id/receive
   async receivePurchaseOrder(id: string, dto: ReceivePODto) {

@@ -8,7 +8,7 @@ import {
   HttpException,
 } from '@nestjs/common';
 import { Pool, PoolClient } from 'pg';
-import { PG_POOL } from '@inv-ledger/database';
+import { PG_POOL } from '@inv-ledger/databases';
 import { LedgerRepository } from './ledger.repository.js';
 import * as crypto from 'crypto';
 @Injectable()

@@ -5,16 +5,13 @@ import { fileURLToPath } from 'node:url';
 import { Pool } from 'pg';
 import { Kysely, PostgresDialect } from 'kysely';
 import { Migrator, FileMigrationProvider } from 'kysely/migration';
-import { PG_POOL } from '@inv-ledger/database';
+import { PG_POOL } from '@inv-ledger/databases';
 
 @Injectable()
 export class MigrationService {
   constructor(@Inject(PG_POOL) private readonly pool: Pool) {}
 
   async runMigrations() {
-    const __filename = fileURLToPath(import.meta.url);
-    const __dirname = path.dirname(__filename);
-
     const db = new Kysely<unknown>({
       dialect: new PostgresDialect({ pool: this.pool }),
     });

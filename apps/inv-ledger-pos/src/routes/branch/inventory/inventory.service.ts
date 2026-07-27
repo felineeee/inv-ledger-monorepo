@@ -1,13 +1,14 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { Kysely, sql } from 'kysely';
-import { DB } from '@/db/types.js';
+import { DB } from '../../../db/types.js';
 import {
   InventoryAdjustmentDto,
   SetReorderThresholdDto,
 } from '../dto/inventory-adjustment.dto.js';
+import { KYSELY_DB } from '@inv-ledger/databases';
 @Injectable()
 export class InventoryService {
-  constructor(private readonly db: Kysely<DB>) {}
+  constructor(@Inject(KYSELY_DB) private readonly db: Kysely<DB>) {}
 
   async getInventoryByLocation(locationId: string) {
     return this.db

@@ -1,6 +1,6 @@
-import { Injectable, ConflictException } from '@nestjs/common';
+import { Inject, Injectable, ConflictException } from '@nestjs/common';
 import { Kysely, sql } from 'kysely';
-import { DB } from '@/db/types.js';
+import { DB } from '../../../db/types.js';
 import {
   CreateTransferDto,
   DispatchTransferDto,
@@ -8,9 +8,10 @@ import {
   ReceiveTransferDto,
   ReceiveTransferItemDto,
 } from '../dto/branch-transfers.dto.js';
+import { KYSELY_DB } from '@inv-ledger/databases';
 @Injectable()
 export class TransferService {
-  constructor(private readonly db: Kysely<DB>) {}
+  constructor(@Inject(KYSELY_DB) private readonly db: Kysely<DB>) {}
 
   // [x] GET /api/transfers
   async findAll(status?: string) {

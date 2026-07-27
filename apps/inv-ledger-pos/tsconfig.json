@@ -1,11 +1,11 @@
 {
-  "extends": "@inv-ledger/tsconfig/base.json",
-  "include": ["src/**/*", "../../packages/filters/src/interfaces"],
+  "extends": "@inv-ledger/tsconfig/nest.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    },
-    "ignoreDeprecations": "6.0"
-  }
+    "rootDir": "src",
+    "outDir": "dist",
+    "sourceMap": true,
+    "incremental": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "**/*.spec.ts", "src/test/**/*"]
 }

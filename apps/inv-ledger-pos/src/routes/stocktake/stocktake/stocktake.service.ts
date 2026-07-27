@@ -1,19 +1,21 @@
 import {
+  Inject,
   Injectable,
   ConflictException,
   NotFoundException,
 } from '@nestjs/common';
 import { Kysely, sql } from 'kysely';
-import { DB } from '@/db/types.js';
+import { DB } from '../../../db/types.js';
 import {
   CreateStocktakeDto,
   SubmitCountBatchDto,
   CorrectStockTakeItemDto,
 } from '../dto/stocktake.dto.js';
+import { KYSELY_DB } from '@inv-ledger/databases';
 
 @Injectable()
 export class StocktakeService {
-  constructor(private readonly db: Kysely<DB>) {}
+  constructor(@Inject(KYSELY_DB) private readonly db: Kysely<DB>) {}
 
   // [x] GET /api/stocktakes
   async findAll() {

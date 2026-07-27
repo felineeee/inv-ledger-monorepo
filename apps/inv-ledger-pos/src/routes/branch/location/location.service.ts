@@ -5,10 +5,10 @@ import {
   InternalServerErrorException,
   BadRequestException,
 } from '@nestjs/common';
-import { KYSELY_DB } from '@inv-ledger/database';
-import type { Kysely } from '@inv-ledger/database';
+import { KYSELY_DB } from '@inv-ledger/databases';
+import type { Kysely } from '@inv-ledger/databases';
 import { randomUUID } from 'crypto';
-import { DB } from '@/db/types.js';
+import { DB } from '../../../db/types.js';
 import { CreateLocationDto, UpdateLocationDto } from '../dto/location.dto.js';
 
 @Injectable()

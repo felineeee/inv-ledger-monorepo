@@ -8,10 +8,10 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { LedgerService } from './ledger.service.js';
-import { AuthGuard } from '@inv-ledger/guard';
-import { CurrentUser } from '@inv-ledger/decorator';
+import { AuthGuard } from '@inv-ledger/guards';
+import { CurrentUser } from '@inv-ledger/decorators';
 import { TransferRequestDto } from './dto/transfer-request.dto.js';
-import { IdempotencyInterceptor } from '@inv-ledger/interceptor';
+import { IdempotencyInterceptor } from '@inv-ledger/interceptors';
 @Controller('ledger')
 export class LedgerController {
   constructor(private readonly ledgerService: LedgerService) {}

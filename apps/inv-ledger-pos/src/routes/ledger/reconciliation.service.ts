@@ -1,7 +1,7 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 import { Cron, CronExpression } from '@nestjs/schedule';
 import { Pool, PoolClient } from 'pg';
-import { PG_POOL } from '@inv-ledger/database';
+import { PG_POOL } from '@inv-ledger/databases';
 
 @Injectable()
 export class ReconciliationService {

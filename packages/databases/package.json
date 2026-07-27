@@ -1,0 +1,24 @@
+{
+  "name": "@inv-ledger/databases",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "db:generate": "kysely-codegen --out-file src/types.ts --dialect=postgres"
+  },
+  "dependencies": {
+    "@nestjs/config": "^4.0.4",
+    "pg": "^8.11.0"
+  },
+  "devDependencies": {
+    "@inv-ledger/tsconfig": "workspace:*",
+    "typescript": "^5.0.0",
+    "@types/pg": "^8.11.0",
+    "kysely": "0.29.4",
+    "kysely-codegen": "^0.11.0",
+    "tsx": "^4.7.0"
+  }
+}
