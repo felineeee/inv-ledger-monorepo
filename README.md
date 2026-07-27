@@ -12,25 +12,25 @@ This project is a standalone backend for `inventory ledger`. This project meant 
 ## Installation
  
 ```bash
-npm install
-cp .env.example .env // match the `docker-compose.yml` and `.env`
-npm run migrate
-npm run start:dev
+#In root directory
+pnpm install
+pnpm run migrate
+pnpm run dev
 ```
 
 Seeding:
 ```bash
-npm run db:seed
+pnpm run db:seed
 ```
 
 Reset database:
 ```bash
-npm run db:reset
+pnpm run db:reset
 ```
 
 Start fresh database:
 ```bash
-npm run db:fresh
+pnpm run db:fresh
 ```
  
 Health check:
